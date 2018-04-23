@@ -17,8 +17,8 @@ var Docker = internal.Register(MustNewLexer(
 	},
 	Rules{
 		"root": {
-			{`^(ONBUILD)(\s+)((?:FROM|MAINTAINER|CMD|EXPOSE|ENV|ADD|ENTRYPOINT|VOLUME|WORKDIR))\b`, ByGroups(NameKeyword, TextWhitespace, Keyword), nil},
-			{`^((?:FROM|MAINTAINER|CMD|EXPOSE|ENV|ADD|ENTRYPOINT|VOLUME|WORKDIR))\b(.*)`, ByGroups(Keyword, LiteralString), nil},
+			{`^(ONBUILD)(\s+)((?:FROM|MAINTAINER|CMD|EXPOSE|ENV|ADD|COPY|ENTRYPOINT|VOLUME|WORKDIR))\b`, ByGroups(NameKeyword, TextWhitespace, Keyword), nil},
+			{`^((?:FROM|MAINTAINER|CMD|EXPOSE|ENV|ADD|COPY|ENTRYPOINT|VOLUME|WORKDIR))\b(.*)`, ByGroups(Keyword, LiteralString), nil},
 			{`#.*`, Comment, nil},
 			{`RUN`, Keyword, nil},
 			{`(.*\\\n)*.+`, Using(Bash), nil},
